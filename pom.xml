@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.example</groupId>
-	<artifactId>hello-world</artifactId>
+	<groupId>org.lszita</groupId>
+	<artifactId>kajapp</artifactId>
 	<version>0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>Jetty HelloWorld WebApp</name>
@@ -67,7 +67,7 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>9.2.2.v20140723</version>
 				<configuration>
-					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<scanIntervalSeconds>1</scanIntervalSeconds>
 					<contextXml>${project.basedir}/jetty/jetty-config.xml</contextXml>
     			</configuration>
 			</plugin>

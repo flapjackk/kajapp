@@ -11,7 +11,7 @@ FB.getLoginStatus(function(response) {
 
 function statusChangeCallback(response) {
 if (response.status === 'connected') {
-    window.location = "/app";
+    testAPI();
 } else if (response.status === 'not_authorized') {
     document.getElementById('status').innerHTML = 'Please log into this app.';
 } else {
@@ -26,6 +26,10 @@ FB.init({
     xfbml      : true,  
     version    : 'v2.5' 
 });
+
+FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
 };
 
 (function(d, s, id) {
@@ -36,11 +40,11 @@ js.src = "//connect.facebook.net/en_US/sdk.js";
 fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-/*function testAPI() {
+function testAPI() {
 console.log('Welcome!  Fetching your information.... ');
 FB.api('/me', function(response) {
 
-    document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
+    document.getElementById('status').innerHTML = '<h4>Thanks for logging in, ' + response.name + '!</h4>';
 
     FB.api('/168956843129213/posts', function(response){
         handleClubResponse(response);
@@ -69,7 +73,7 @@ FB.api('/me', function(response) {
 
 
 });
-}*/
+}
 
 
 String.prototype.containsAny = function(keywords){
@@ -182,13 +186,14 @@ function handleIntenzoResponse(response){
 }
 
 function handleVerandaResponse(response){
+    console.log(response);
     let keywords = ['menü','heti','hét','napi','hétfő','kedd','szerda','csütörtök','péntek'];
     let data = response.data;
     kajapp.verandaLatest = [];
     
     var i = 0;
     while(kajapp.verandaLatest.length < 5 || i === data.length){
-        if(data[i].message.containsAny(keywords))
+        if(data[i].message && data[i].message.containsAny(keywords))
             kajapp.verandaLatest.push({
                 msg: data[i].message, 
                 date: data[i].created_time.split('T')[0]}
@@ -200,6 +205,7 @@ function handleVerandaResponse(response){
     var verandaContent = '<p>' + kajapp.verandaLatest[0].msg.replace(/\n/g,'<br>') + '</p>';
         verandaContent += '<span>' + kajapp.verandaLatest[0].date + '</span>';
     verandaHolder.innerHTML = verandaContent;
+    console.log(verandaContent);
 
 }
 

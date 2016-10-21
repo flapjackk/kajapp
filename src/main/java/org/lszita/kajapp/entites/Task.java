@@ -1,4 +1,4 @@
-package org.example.entites;
+package org.lszita.kajapp.entites;
 
 /*import javax.persistence.Column;
 import javax.persistence.Entity;

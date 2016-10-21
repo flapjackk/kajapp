@@ -1,12 +1,9 @@
-package org.example.restaurant;
+package org.lszita.kajapp.restaurant;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
-import javax.json.JsonBuilderFactory;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
 
@@ -15,7 +12,28 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 public class Intenzo {
-
+	
+	public JsonObject getMenu(){
+		
+		Document doc;
+		JsonObjectBuilder jsonBuilder = Json.createObjectBuilder();
+		JsonArrayBuilder jsonArrayBuilder = Json.createArrayBuilder();
+		
+		try {
+			doc = Jsoup.connect("http://www.cafeintenzo.hu").timeout(7000).get();
+			Elements menu = doc.select("#hetimenu > div > div > div");
+			for(int i = 1; i < menu.size(); i++){
+				jsonArrayBuilder.add(menu.get(i).text());
+			}
+			jsonBuilder.add("menu", jsonArrayBuilder);
+		} catch (IOException e) {
+			jsonBuilder.add("error", e.getMessage());
+		}
+		return jsonBuilder.build();
+	}
+	
+	// old site got removed RIP
+	/* 
 	public JsonObject getMenu(){
 		
 		Document doc;
@@ -39,5 +57,7 @@ public class Intenzo {
 		}
 		
 		return jsonBuilder.build();
-	}
+	}*/
+	
+	
 }

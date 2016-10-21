@@ -1,4 +1,4 @@
-package org.example.restaurant;
+package org.lszita.kajapp.restaurant;
 
 public class Club {
 

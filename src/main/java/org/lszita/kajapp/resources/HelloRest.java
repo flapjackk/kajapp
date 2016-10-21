@@ -1,4 +1,4 @@
-package org.example.resources;
+package org.lszita.kajapp.resources;
 
 /*import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -8,8 +8,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.example.entites.Task;
-import org.example.restaurant.Club;
+import org.lszita.kajapp.entites.Task;
+import org.lszita.kajapp.restaurant.Club;
 
 @Path("hellorest")
 public class HelloRest {

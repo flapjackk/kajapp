@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kajapp</title>
+    <title>Kajapp - login</title>
     <script src="facebook.js"></script>
     <script src="jquery-3.1.1.min.js"></script>
     <!-- Latest compiled and minified CSS -->
@@ -17,10 +17,6 @@
     <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-
 <div class="container">
 
     <div class="page-header">
@@ -33,29 +29,9 @@
     </div>
 
     <div class="row">
-        <div id="club" class="col-md-4">
-        Club Loading...
-        </div>
-
-        <div id="kantin" class="col-md-4">
-        Kantin Loading...
-        </div>
-
-        <div id="toros" class="col-md-4">
-        Toros Loading...
-        </div>
-    </div>
-    <div class="row">
-        <div id="andreas" class="col-md-4">
-        Andreas Loading...
-        </div>
-
-        <div id="intenzo" class="col-md-4">
-        Intenzo Loading...
-        </div>
-
-        <div id="veranda" class="col-md-4">
-        Veranda Loading...
+        <div class="col-md-12">
+            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+            </fb:login-button>
         </div>
     </div>
 </div>
