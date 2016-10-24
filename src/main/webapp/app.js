@@ -15,6 +15,7 @@ if (response.status === 'connected') {
 } else if (response.status === 'not_authorized') {
     document.getElementById('status').innerHTML = 'Please log into this app.';
 } else {
+    console.log('WHAT');
     document.getElementById('status').innerHTML = 'Please log into Facebook.';
 }
 }

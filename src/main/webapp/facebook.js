@@ -10,11 +10,13 @@ FB.getLoginStatus(function(response) {
 }
 
 function statusChangeCallback(response) {
+    console.log(response);
 if (response.status === 'connected') {
     window.location = "/app";
 } else if (response.status === 'not_authorized') {
     document.getElementById('status').innerHTML = 'Please log into this app.';
 } else {
+    console.log("whaatt");
     document.getElementById('status').innerHTML = 'Please log into Facebook.';
 }
 }
