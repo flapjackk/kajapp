@@ -63,7 +63,7 @@ FB.api('/me', function(response) {
         handleAndreasResponse(response);
     });
 
-    $.getJSON('http://localhost:8080/api/restaurant/intenzo', function(response){
+    $.getJSON('/api/restaurant/intenzo', function(response){
         handleIntenzoResponse(response);
     });
 
